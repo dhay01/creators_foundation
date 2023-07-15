@@ -1,0 +1,20 @@
+footer{
+    background: #4b3b69;
+    margin-top: auto;
+
+}
+footer a {
+    text-decoration: none;
+}
+.my-5{
+    margin-bottom: 0 !important;
+}
+h6 p {
+    text-align: start;
+}
+.text-logo-caption{
+    margin-right: 10%;
+}
+.text-logo-caption {
+    margin-top: 10px;
+}

@@ -1,0 +1,33 @@
+
+
+.img-fluid{
+    border-radius: 10px;
+}
+.text-alignment{
+    text-align: right;
+}
+
+.text-custom-primary {
+margin-bottom: 10%;
+    color: #7050A9;
+}
+.text-right {
+    text-align: right;
+
+}
+.text-muted{
+    line-height: 170%;
+}
+.about-home{
+    margin-top: 8%;
+    margin-bottom: 10%;
+    text-align: right;
+}
+
+
+.about-home .row {
+    align-items: flex-start;
+}
+.btn-primary{
+    background-color: #7050A9 !important;
+}

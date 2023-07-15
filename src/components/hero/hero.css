@@ -1,0 +1,34 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo&family=Poppins:wght@300&display=swap');
+
+
+/* Add your existing CSS styles here */
+
+*{
+    font-family: 'Cairo', sans-serif !important;
+}
+.carousel .slick-slide > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-item {
+    height: 500px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item.active {
+    transform: translateX(0);
+}
+
+.slide-image {
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(80%);
+}
+
+.carousel-caption a{
+    color: white;
+}

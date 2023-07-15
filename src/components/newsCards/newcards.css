@@ -1,0 +1,21 @@
+.newscards{
+    padding-top: 100px;
+    width: 100%;
+
+}
+.cards-container-news{
+    margin-top: 50px;
+}
+.heart-button{
+    outline: none !important;
+    border:none!important;
+    background: none!important;
+}
+.btn-primary:hover{
+   background-color: #4b3b69 !important;
+}
+
+.activities-cards-container{
+    overflow: scroll;
+    flex-direction: row;
+}

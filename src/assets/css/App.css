@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo&family=Poppins:wght@300&display=swap');
+
+.mainLayout .ant-layout-header {
+  background: white !important;
+
+}
+.App {
+  background: white !important;
+}
+
+.col-4 {
+  width: 25%;
+  float: left;
+}
+
+h1 {
+  font-size: 38px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 1100px;
+  }
+  h1 {
+    font-size: 58px;
+  }
+}
+.logo-image{
+  padding-top: 5%;
+  width:40%;
+
+}
+.btn-primary:hover{
+  background-color: #4b3b69 !important;
+  outline: #4b3b69!important;
+  border:#4b3b69!important;
+}
+.btn-outline-primary{
+  outline: #4b3b69!important;
+  border:#4b3b69!important;
+
+}
