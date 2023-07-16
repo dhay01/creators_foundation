@@ -28,30 +28,25 @@ function Newscards({ newsData }) {
             title: newsItem.title,
             content: truncateText(newsItem.content, 80),
             id: newsItem.id,
+            date: newsItem.date
         },
     }));
 
 
     return (
         <div className="container cards-container-news">
-            <h2 className="text-center mb-4">نشاطاتنا</h2>
-            <div className="row justify-content-start overflow-auto">
+            <h2 className="text-center section-title mb-4">اخر المقالات</h2>
+            <div className="row cardsrow justify-content-start overflow-auto">
                 {slides.map((slide, index) => (
-                    <div className="col-md-4" key={index}>
-                        <div className="card mb-3" style={{ height: '400px' }}>
-                            <div className="card-img-container" style={{ height: '200px', overflow: 'hidden' }}>
-                                <img src={slide.images[0].path} className="card-img-top" alt="Card" />
-                            </div>
-                            <div className="card-body" style={{ height: '200px' }}>
-                                <h5 className="card-title">{slide.caption.title}</h5>
-                                <p className="card-text">{slide.caption.content}</p>
-                            </div>
-                            <div className="card-footer d-flex justify-content-between align-items-center">
-                                <Link to={`/news/${slide.caption.id}`} className="btn btn-primary mt-3">
-                                    <FontAwesomeIcon icon={faArrowLeft} style={{ color: "#ffffff", marginRight: 10 }} />
-                                    اقرا المزيد
-                                </Link>
-                            </div>
+
+                    <div className="col-md-4"  key={index}>
+
+                        <div className="card news-cards border-0" style={{  }}>
+                            <img src={slide.images[0].path} className="card-img-top" alt="Card Image"/>
+                                <div className="card-body">
+                                    <h4 className="card-title text-right">{slide.caption.title}</h4>
+                                    <p className="card-text text-right">{slide.caption.date}</p>
+                                </div>
                         </div>
                     </div>
                 ))}

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "./gallery.css"; // Import custom CSS file for styling
+import "./gallery.css";
+import Loader from "../../assets/loader"; // Import custom CSS file for styling
 
 function Gallery() {
     const [galleryData, setGalleryData] = useState(null);
@@ -37,7 +38,9 @@ function Gallery() {
                     ))}
                 </div>
             ) : (
-                <div className="preloaded"></div>
+                <div className="coming-soon-parent">
+                    <Loader />
+                </div>
             )}
         </div>
     );

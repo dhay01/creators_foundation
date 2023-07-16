@@ -37,7 +37,7 @@ function AppRouter() {
     return (
         <Router>
             <Layout className="mainLayout">
-                <div className="App">
+                <div className="App bg-white">
                     <Navbar />
                     <Routes>
                         <Route path="/" element={<HomePage newsData={newsData} />} />

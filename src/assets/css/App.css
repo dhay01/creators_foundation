@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo&family=Poppins:wght@300&display=swap');
+/*body{*/
+/*  background-color: white;*/
+/*}*/
+/*.mainLayout .ant-layout-header {*/
+/*  background: white !important;*/
 
-.mainLayout .ant-layout-header {
-  background: white !important;
-
-}
-.App {
-  background: white !important;
-}
+/*}*/
+/*.App {*/
+/*  background: white !important;*/
+/*}*/
 
 .col-4 {
   width: 25%;
@@ -42,3 +44,6 @@ h1 {
   border:#4b3b69!important;
 
 }
+
+
+/*-loader-*/

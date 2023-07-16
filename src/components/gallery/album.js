@@ -5,6 +5,7 @@ import "./album.css";
 import ImageGallery from "react-image-gallery";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCalendarDays} from "@fortawesome/free-solid-svg-icons";
+import Loader from "../../assets/loader";
 
 function GalleryAlbum() {
     const { galleryId } = useParams();
@@ -47,7 +48,9 @@ function GalleryAlbum() {
             {images && images.length > 0 ? (
                 <ImageGallery items={imageGalleryItems} />
             ) : (
-                <div className="preloaded"></div>
+                <div className="coming-soon-parent">
+                    <Loader />
+                </div>
             )}
         </div>
     );

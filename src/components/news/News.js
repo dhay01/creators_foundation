@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDays, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import "./News.css";
-import comingsoon from "../news/coming-soon_5229336.svg";
+import comingsoon from "../news/undraw_no_data_re_kwbl.svg";
+import Loader from "../../assets/loader"
 
 function NewsPage({ newsData }) {
     const [currentPage, setCurrentPage] = useState(1);
@@ -18,7 +19,7 @@ function NewsPage({ newsData }) {
         if (content.length <= maxLength) {
             return content;
         }
-        return content.substring(0, maxLength) + '....';
+        return '....' + content.substring(0, maxLength) ;
     };
     // pagination
 
@@ -38,43 +39,36 @@ function NewsPage({ newsData }) {
     return (
         <div className="news-page">
             <div className="title">
-                <h2>الاخبار والانشطة</h2>
+                <h2>اخر الاخبار</h2>
             </div>
             <div className="news-container">
                 {displayedNewsData.length > 0 ? (
-                    <div className="row">
-                        {displayedNewsData.map(newsItem => (
-                            <div key={newsItem.id} className="my-auto">
-                                <h4 className="font-tertiary">
-                                    <Link to={`/news/${newsItem.id}`}>{newsItem.title}</Link>
-                                </h4>
-                                <h6 className="text-muted">
-                                    {newsItem.date}{" "}
-                                    <FontAwesomeIcon
-                                        icon={faCalendarDays}
-                                        style={{ color: "#dddedf" }}
-                                    />
-                                </h6>
-                                <h5 className="text-muted" style={{ fontSize: "14px" }}>
-                                    {truncateContent(newsItem.content, 80)}
-                                </h5>
-                                <Link to={`/news/${newsItem.id}`}>
-                                    <button className="btn btn-primary mt-3">
-                                        <FontAwesomeIcon
-                                            icon={faArrowLeft}
-                                            style={{ color: "#ffffff", marginRight: 10 }}
-                                        />
-                                        اقرا المزيد
-                                    </button>
-                                </Link>
+                        <div className="container cards-container-news">
+                            <div className="row cardsrow justify-content-start overflow-auto">
+                                {displayedNewsData.map(newsItem => (
 
-                                <hr />
+                                    <div className="col-md-4" key={newsItem.id}>
+
+                                        <div className="card news-cards border-0" >
+                                            <img src={newsItem.images[0].path} className="card-img-top" alt="Card Image"/>
+                                            <div className="card-body">
+                                                <h4 className="card-title text-right"> <Link to={`/news/${newsItem.id}`}>{newsItem.title}</Link></h4>
+                                                <p className="card-text text-right"> <h6 className="text-muted">
+                                                    {newsItem.date}{" "}
+                                                    <FontAwesomeIcon
+                                                        icon={faCalendarDays}
+                                                        style={{ color: "#dddedf" }}
+                                                    />
+                                                </h6></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
-                        ))}
-                    </div>
+                        </div>
                 ) : (
                     <div className="coming-soon-parent">
-                        <img className="coming-soon" src={comingsoon} alt="Coming Soon" />
+                            <Loader />
                     </div>
                 )}
             </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../abouthome/about_home.css';
-import aboutpicture from '../abouthome/abouthome.png';
+import aboutpicture from '../abouthome/photo_2023-07-16 12.24.57.jpeg';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 

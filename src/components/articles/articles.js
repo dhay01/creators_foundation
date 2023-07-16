@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./articles.css";
-import comingsoon from "../news/coming-soon_5229336.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faCalendarDays } from "@fortawesome/free-solid-svg-icons";
+import {faCalendarDays } from "@fortawesome/free-solid-svg-icons";
+import Loader from "../../assets/loader";
 
 function Articles({ newsData }) {
     const truncateContent = (content, maxLength) => {
@@ -35,38 +35,31 @@ function Articles({ newsData }) {
             </div>
             <div className="articles-container">
                 {displayedNewsData.length > 0 ? (
-                    <div className="row">
-                        {displayedNewsData.map(newsItem => (
-                            <div key={newsItem.id} className="my-auto">
-                                <h4 className="font-tertiary">
-                                    <Link to={`/articles/${newsItem.id}`}>{newsItem.title}</Link>
-                                </h4>
-                                <h6 className="text-muted">
-                                    {newsItem.date}{" "}
-                                    <FontAwesomeIcon
-                                        icon={faCalendarDays}
-                                        style={{ color: "#dddedf" }}
-                                    />
-                                </h6>
-                                <h5 className="text-muted" style={{ fontSize: "14px" }}>
-                                    {truncateContent(newsItem.content, 80)}
-                                </h5>
-                                <Link to={`/articles/${newsItem.id}`}>
-                                    <button className="btn btn-primary mt-3">
-                                        <FontAwesomeIcon
-                                            icon={faArrowLeft}
-                                            style={{ color: "#ffffff", marginRight: 10 }}
-                                        />
-                                        اقرا المزيد
-                                    </button>
-                                </Link>
-                                <hr />
-                            </div>
-                        ))}
+                    <div className="container cards-container-news">
+                        <div className="row cardsrow justify-content-start overflow-auto">
+                            {displayedNewsData.map(newsItem => (
+                                <div className="col-md-4" key={newsItem.id}>
+                                    <div className="card news-cards border-0">
+                                        <img src={newsItem.images[0].path} className="card-img-top" alt="Card Image" />
+                                        <div className="card-body">
+                                            <h4 className="card-title text-right">
+                                                <Link to={`/news/${newsItem.id}`}>{newsItem.title}</Link>
+                                            </h4>
+                                            <p className="card-text text-right">
+                                                <h6 className="text-muted">
+                                                    {newsItem.date}{" "}
+                                                    <FontAwesomeIcon icon={faCalendarDays} style={{ color: "#dddedf" }} />
+                                                </h6>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 ) : (
                     <div className="coming-soon-parent">
-                        <img className="coming-soon" src={comingsoon} alt="Coming Soon" />
+                        <Loader />
                     </div>
                 )}
             </div>

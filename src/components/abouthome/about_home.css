@@ -2,13 +2,23 @@
 
 .img-fluid{
     border-radius: 10px;
+    /*cursor: pointer;*/
+    transition: all .5s ease-in-out;
+    height: 600px !important;
+    object-fit: cover;
+    width: 600px;
+
+}
+.img-fluid:hover{
+    transform: translateY(-10px);
+    box-shadow: -9px 10px 2px 0px rgba(112, 80, 169, 0.40);
 }
 .text-alignment{
     text-align: right;
 }
 
 .text-custom-primary {
-margin-bottom: 10%;
+margin-bottom: 5%;
     color: #7050A9;
 }
 .text-right {
@@ -20,7 +30,7 @@ margin-bottom: 10%;
 }
 .about-home{
     margin-top: 8%;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
     text-align: right;
 }
 

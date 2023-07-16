@@ -4,4 +4,11 @@
 .card-size{
     width: 90%;
 }
+.card-size img{
+    filter: grayscale(1);
+}
 
+.card-size img:hover{
+    filter: grayscale(0);
+    transition: all .5s ease-in-out;
+}
