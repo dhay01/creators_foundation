@@ -3,6 +3,7 @@ import '../abouthome/about_home.css';
 import aboutpicture from '../abouthome/photo_2023-07-16 12.24.57.jpeg';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
+import {Link} from "react-router-dom";
 
 function Abouthome() {
     return (
@@ -18,11 +19,10 @@ function Abouthome() {
                         الأخرى
                         للنشاطات العلمية التنموية والفنية والثقافية وهي كالاتي
                     </h5>
-                    <a href="/about">
+                    <Link to={`/about`}>
                         <button className="btn btn-primary mt-3"> <FontAwesomeIcon icon={faArrowLeft} style={{color: "#ffffff",marginRight  : 10}} />اقرا المزيد </button>
 
-                    </a>
-
+                    </Link>
                 </div>
                 <div className="col-md-6 my-auto text-center">
                     <img src={aboutpicture} className="img-fluid" alt="mobile screen" />

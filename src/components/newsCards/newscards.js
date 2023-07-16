@@ -40,14 +40,19 @@ function Newscards({ newsData }) {
                 {slides.map((slide, index) => (
 
                     <div className="col-md-4"  key={index}>
-
-                        <div className="card news-cards border-0" style={{  }}>
-                            <img src={slide.images[0].path} className="card-img-top" alt="Card Image"/>
+                        <Link to={`/articles/${slide.caption.id}`}>
+                            <div className="card news-cards border-0" style={{  }}>
+                                <img src={slide.images[0].path} className="card-img-top" alt="Card Image"/>
                                 <div className="card-body">
-                                    <h4 className="card-title text-right">{slide.caption.title}</h4>
+                                    <h4 className="card-title text-right">
+                                        {slide.caption.title}
+                                    </h4>
                                     <p className="card-text text-right">{slide.caption.date}</p>
                                 </div>
-                        </div>
+                            </div>
+                        </Link>
+
+
                     </div>
                 ))}
             </div>

@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
 import "./articles.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faCalendarDays } from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCalendarDays} from "@fortawesome/free-solid-svg-icons";
 import Loader from "../../assets/loader";
 
-function Articles({ newsData }) {
+function Articles({newsData}) {
     const truncateContent = (content, maxLength) => {
         if (content.length <= maxLength) {
             return content;
@@ -39,27 +39,31 @@ function Articles({ newsData }) {
                         <div className="row cardsrow justify-content-start overflow-auto">
                             {displayedNewsData.map(newsItem => (
                                 <div className="col-md-4" key={newsItem.id}>
-                                    <div className="card news-cards border-0">
-                                        <img src={newsItem.images[0].path} className="card-img-top" alt="Card Image" />
-                                        <div className="card-body">
-                                            <h4 className="card-title text-right">
-                                                <Link to={`/news/${newsItem.id}`}>{newsItem.title}</Link>
-                                            </h4>
-                                            <p className="card-text text-right">
-                                                <h6 className="text-muted">
-                                                    {newsItem.date}{" "}
-                                                    <FontAwesomeIcon icon={faCalendarDays} style={{ color: "#dddedf" }} />
-                                                </h6>
-                                            </p>
+                                    <Link to={`/articles/${newsItem.id}`}>
+                                        <div className="card news-cards border-0">
+                                            <img src={newsItem.images[0].path} className="card-img-top"
+                                                 alt="Card Image"/>
+                                            <div className="card-body">
+                                                <h4 className="card-title text-right">
+                                                    {newsItem.title}
+                                                </h4>
+                                                <p className="card-text text-right">
+                                                    <h6 className="text-muted">
+                                                        {newsItem.date}{" "}
+                                                        <FontAwesomeIcon icon={faCalendarDays}
+                                                                         style={{color: "#dddedf"}}/>
+                                                    </h6>
+                                                </p>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </Link>
                                 </div>
                             ))}
                         </div>
                     </div>
                 ) : (
                     <div className="coming-soon-parent">
-                        <Loader />
+                        <Loader/>
                     </div>
                 )}
             </div>
@@ -67,7 +71,7 @@ function Articles({ newsData }) {
             {/* Pagination */}
             {filteredNewsData.length > itemsPerPage && (
                 <div className="pagination">
-                    {Array.from({ length: Math.ceil(filteredNewsData.length / itemsPerPage) }, (_, index) => (
+                    {Array.from({length: Math.ceil(filteredNewsData.length / itemsPerPage)}, (_, index) => (
                         <button
                             key={index + 1}
                             className={`btn btn-outline-secondary pagination-button ${currentPage === index + 1 ? 'active' : ''}`}

@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarDays, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCalendarDays, faArrowLeft} from '@fortawesome/free-solid-svg-icons';
 import "./News.css";
 import comingsoon from "../news/undraw_no_data_re_kwbl.svg";
 import Loader from "../../assets/loader"
 
-function NewsPage({ newsData }) {
+function NewsPage({newsData}) {
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 5;
     const filteredNewsData = newsData.filter(
@@ -19,7 +19,7 @@ function NewsPage({ newsData }) {
         if (content.length <= maxLength) {
             return content;
         }
-        return '....' + content.substring(0, maxLength) ;
+        return '....' + content.substring(0, maxLength);
     };
     // pagination
 
@@ -29,7 +29,6 @@ function NewsPage({ newsData }) {
 
     // Slice the filteredNewsData based on the current page
     const displayedNewsData = filteredNewsData.slice(startIndex, endIndex);
-
 
 
     const handlePageChange = (pageNumber) => {
@@ -43,32 +42,34 @@ function NewsPage({ newsData }) {
             </div>
             <div className="news-container">
                 {displayedNewsData.length > 0 ? (
-                        <div className="container cards-container-news">
-                            <div className="row cardsrow justify-content-start overflow-auto">
-                                {displayedNewsData.map(newsItem => (
+                    <div className="container cards-container-news">
+                        <div className="row cardsrow justify-content-start overflow-auto">
+                            {displayedNewsData.map(newsItem => (
 
-                                    <div className="col-md-4" key={newsItem.id}>
-
-                                        <div className="card news-cards border-0" >
-                                            <img src={newsItem.images[0].path} className="card-img-top" alt="Card Image"/>
+                                <div className="col-md-4" key={newsItem.id}>
+                                    <Link to={`/news/${newsItem.id}`}>
+                                        <div className="card news-cards border-0">
+                                            <img src={newsItem.images[0].path} className="card-img-top"
+                                                 alt="Card Image"/>
                                             <div className="card-body">
-                                                <h4 className="card-title text-right"> <Link to={`/news/${newsItem.id}`}>{newsItem.title}</Link></h4>
-                                                <p className="card-text text-right"> <h6 className="text-muted">
+                                                <h4 className="card-title text-right"> {newsItem.title}</h4>
+                                                <p className="card-text text-right"><h6 className="text-muted">
                                                     {newsItem.date}{" "}
                                                     <FontAwesomeIcon
                                                         icon={faCalendarDays}
-                                                        style={{ color: "#dddedf" }}
+                                                        style={{color: "#dddedf"}}
                                                     />
                                                 </h6></p>
                                             </div>
                                         </div>
-                                    </div>
-                                ))}
-                            </div>
+                                    </Link>
+                                </div>
+                            ))}
                         </div>
+                    </div>
                 ) : (
                     <div className="coming-soon-parent">
-                            <Loader />
+                        <Loader/>
                     </div>
                 )}
             </div>
@@ -76,7 +77,7 @@ function NewsPage({ newsData }) {
             {/* Pagination */}
             {filteredNewsData.length > itemsPerPage && (
                 <div className="pagination">
-                    {Array.from({ length: Math.ceil(filteredNewsData.length / itemsPerPage) }, (_, index) => (
+                    {Array.from({length: Math.ceil(filteredNewsData.length / itemsPerPage)}, (_, index) => (
                         <button
                             key={index + 1}
                             className={`btn btn-outline-secondary pagination-button ${currentPage === index + 1 ? 'active' : ''}`}
