@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCalendarDays, faArrowLeft} from '@fortawesome/free-solid-svg-icons';
+import {faCalendarDays} from '@fortawesome/free-solid-svg-icons';
 import "./News.css";
-import comingsoon from "../news/undraw_no_data_re_kwbl.svg";
 import Loader from "../../assets/loader"
 
 function NewsPage({newsData}) {
@@ -15,19 +14,10 @@ function NewsPage({newsData}) {
     if (!newsData) {
         return null;
     }
-    const truncateContent = (content, maxLength) => {
-        if (content.length <= maxLength) {
-            return content;
-        }
-        return '....' + content.substring(0, maxLength);
-    };
-    // pagination
 
-    // Calculate the index range for the current page
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
 
-    // Slice the filteredNewsData based on the current page
     const displayedNewsData = filteredNewsData.slice(startIndex, endIndex);
 
 

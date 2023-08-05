@@ -13,9 +13,7 @@ function HomePage({ newsData }) {
             <>
                 <Newscards newsData={newsData} />
             </>
-            <>
-                <Sponsers />
-            </>
+
             <>
                 <Abouthome />
             </>

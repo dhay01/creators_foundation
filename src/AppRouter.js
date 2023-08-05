@@ -15,14 +15,15 @@ import News from "./components/news/News";
 import NewsDetails from "./components/news/NewsDetails";
 import ArticleDetails from "./components/articles/ArticleDetails";
 
-function AppRouter() {
+
+function useNewsData() {
     const [newsData, setNewsData] = useState([]);
 
     useEffect(() => {
         axios
             .get(`https://back.creators-foundation.org/api/news.php?operation=news&page=1`)
             .then(response => {
-                console.log(response.data); // Check the entire response data
+                console.log(response.data);
                 if (response.data && response.data.news) {
                     setNewsData(response.data.news);
                 } else {
@@ -33,6 +34,12 @@ function AppRouter() {
                 console.error('Error fetching news data:', error);
             });
     }, []);
+
+    return newsData;
+}
+
+function AppRouter() {
+    const newsData = useNewsData();
 
     return (
         <Router>
@@ -59,3 +66,4 @@ function AppRouter() {
 }
 
 export default AppRouter;
+
