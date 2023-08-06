@@ -23,11 +23,9 @@ function ArticleDetails({newsData}) {
             <p>{article.content}</p>
             <div className="images-container">
                 {article.images.map((image, index) => (
-                    <div className="img-parent">
-                        <img key={index} src={image.path} alt={` ${index}`}/>
+                    <div className="img-parent" key={index}>
+                        <img src={image.path} alt={`Image ${index}`} />
                     </div>
-
-
                 ))}
             </div>
         </div>

@@ -1,11 +1,15 @@
 import React from 'react';
-import {createRoot} from 'react-dom/client';
-
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { createRoot } from 'react-dom/client';
+import AppRouter from './AppRouter';
+import { NewsProvider } from './NewsContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-createRoot(document.getElementById('root')).render(<App/>);
+const rootElement = document.getElementById('root');
 
-//React generated comments ignored
-reportWebVitals();
+createRoot(rootElement).render(
+    <React.StrictMode>
+        <NewsProvider>
+            <AppRouter />
+        </NewsProvider>
+    </React.StrictMode>
+);

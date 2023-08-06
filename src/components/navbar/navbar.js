@@ -1,19 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../navbar/navbar.css';
-import logo from '../navbar/blacklogo.png';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import logo from './logocircle.png';
+import './navbar.css';
 
-function Navbar() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-    const handleMenuToggle = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
-
-    const closeMenu = () => {
-        setIsMenuOpen(false);
-    };
-
+function Navbarheader() {
     const navItems = [
         { label: "الرئيسية ", link: "/" },
         { label: "من نحن", link: "/about" },
@@ -26,36 +20,57 @@ function Navbar() {
 
     const reversedNavItems = [...navItems].reverse();
 
+    const [showOffcanvas, setShowOffcanvas] = useState(false);
+
+    const handleCloseOffcanvas = () => {
+        setShowOffcanvas(false);
+    };
+
+    const handleToggleOffcanvas = () => {
+        setShowOffcanvas(!showOffcanvas);
+    };
+
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <button
-                className={`navbar-toggler ${isMenuOpen ? "active" : ""}`}
-                type="button"
-                onClick={handleMenuToggle}
-            >
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div
-                className={`container ${isMenuOpen ? "show" : ""}`}
-                onClick={closeMenu}
-            >
-                <div className="collapse navbar-collapse justify-content-center">
-                    <ul className="navbar-nav">
-                        {reversedNavItems.map((item, index) => (
-                            <li className="nav-item" key={index}>
-                                <Link className="nav-link" to={item.link}>
-                                    {item.label}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-                <Link className="navbar-brand ml-auto" to="/">
-                    <img src={logo} alt="logo" width="250px" />
-                </Link>
-            </div>
-        </nav>
+        <>
+            {['lg'].map((expand) => (
+                <Navbar key={expand} expand={expand} className="bg-body-tertiary mb-3">
+                    <Container fluid>
+                        <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} onClick={handleToggleOffcanvas} />
+                        <Navbar.Offcanvas
+                            show={showOffcanvas}
+                            id={`offcanvasNavbar-expand-${expand}`}
+                            aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+                            placement="end"
+                        >
+                            <Offcanvas.Header closeButton>
+                                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+                                    مؤسسة مبدعون للتربية والفنون
+                                </Offcanvas.Title>
+                            </Offcanvas.Header>
+                            <Offcanvas.Body>
+                                <Nav className="justify-content-center flex-grow-1 pe-3 custom-nav">
+                                    {reversedNavItems.map((item, index) => (
+                                        <Nav.Link className="nav-items" as={Link} to={item.link} key={index} onClick={handleCloseOffcanvas}>
+                                            {item.label}
+                                        </Nav.Link>
+                                    ))}
+                                </Nav>
+                            </Offcanvas.Body>
+                        </Navbar.Offcanvas>
+                        <Navbar.Brand className="ml-auto">
+                            <img
+                                alt=""
+                                src={logo}
+                                width="50"
+                                height="50"
+                                className="d-inline-block align-top"
+                            />
+                        </Navbar.Brand>
+                    </Container>
+                </Navbar>
+            ))}
+        </>
     );
 }
 
-export default Navbar;
+export default Navbarheader;

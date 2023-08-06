@@ -4,10 +4,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Autoplay, Navigation, Pagination } from 'swiper';
 import 'swiper/css';
 import { Link } from 'react-router-dom';
-
+import { useNews } from '../../NewsContext'; // Adjust the import path based on your project structure
 SwiperCore.use([Autoplay, Navigation, Pagination]);
 
-function Hero({ newsData }) {
+function Hero() {
+    const newsData = useNews();
     const filteredNewsData = newsData.filter(
         newsItem => newsItem.section.includes('الأخبار')
     );
@@ -51,11 +52,10 @@ function Hero({ newsData }) {
                             {slide.images.map((image, index) => (
                                 <img key={index} src={image.path} className="d-block w-100 slide-image" alt={`Slide ${index + 1}`} />
                             ))}
-                            <div className="carousel-caption d-none d-md-block">
+                            <div className={`carousel-caption ${activeSlide === index ? 'visible' : ''}`}>
                                 <h5>
                                     <Link to={`/news/${slide.caption.id}`}>{slide.caption.title}</Link>
                                 </h5>
-                                {/*<p>{slide.caption.content}</p>*/}
                             </div>
                         </div>
                     </SwiperSlide>

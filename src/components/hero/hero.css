@@ -2,9 +2,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cairo&family=Poppins:wght@300&display=swap');
 
-
-/* Add your existing CSS styles here */
-
 *{
     font-family: 'Cairo', sans-serif !important;
 }
@@ -15,7 +12,7 @@
 }
 
 .carousel-item {
-    height: 500px;
+    height: 600px;
     transition: transform 0.5s ease-in-out;
 }
 
@@ -31,4 +28,29 @@
 
 .carousel-caption a{
     color: white;
+}
+.carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /*background-color: rgba(0, 0, 0, 0.7);*/
+    padding: 20px;
+    color: white;
+}
+
+.carousel-caption h5 {
+    font-size: 24px;
+    margin-bottom: 10px;
+
+}
+
+/* Additional responsive styles for smaller screens */
+@media (max-width: 767px) {
+    .carousel-caption h5 {
+        font-size: 18px;
+    }
+    .carousel-caption.visible h5 {
+        display: block; /* Show the title on smaller screens */
+    }
 }

@@ -48,11 +48,11 @@ function Articles({newsData}) {
                                                     {newsItem.title}
                                                 </h4>
                                                 <p className="card-text text-right">
-                                                    <h6 className="text-muted">
-                                                        {newsItem.date}{" "}
-                                                        <FontAwesomeIcon icon={faCalendarDays}
-                                                                         style={{color: "#dddedf"}}/>
-                                                    </h6>
+                                                    {newsItem.date}{" "}
+                                                    <FontAwesomeIcon
+                                                        icon={faCalendarDays}
+                                                        style={{color: "#dddedf"}}
+                                                    />
                                                 </p>
                                             </div>
                                         </div>

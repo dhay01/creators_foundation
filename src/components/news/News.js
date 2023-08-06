@@ -43,13 +43,13 @@ function NewsPage({newsData}) {
                                                  alt="Card Image"/>
                                             <div className="card-body">
                                                 <h4 className="card-title text-right"> {newsItem.title}</h4>
-                                                <p className="card-text text-right"><h6 className="text-muted">
+                                                <p className="card-text text-right">
                                                     {newsItem.date}{" "}
                                                     <FontAwesomeIcon
                                                         icon={faCalendarDays}
                                                         style={{color: "#dddedf"}}
                                                     />
-                                                </h6></p>
+                                                </p>
                                             </div>
                                         </div>
                                     </Link>

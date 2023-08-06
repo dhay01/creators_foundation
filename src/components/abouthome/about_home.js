@@ -5,6 +5,14 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import {Link} from "react-router-dom";
 
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
 function Abouthome() {
     return (
         <div className="container about-home">
@@ -20,12 +28,12 @@ function Abouthome() {
                         للنشاطات العلمية التنموية والفنية والثقافية وهي كالاتي
                     </h5>
                     <Link to={`/about`}>
-                        <button className="btn btn-primary mt-3"> <FontAwesomeIcon icon={faArrowLeft} style={{color: "#ffffff",marginRight  : 10}} />اقرا المزيد </button>
+                        <button onClick={scrollToTop}  className="btn btn-primary  mt-3"> <FontAwesomeIcon icon={faArrowLeft} style={{color: "#ffffff",marginRight  : 10}} />اقرا المزيد </button>
 
                     </Link>
                 </div>
                 <div className="col-md-6 my-auto text-center">
-                    <img src={aboutpicture} className="img-fluid" alt="mobile screen" />
+                    <img src={aboutpicture} className="img-fluid img-responsive " alt="mobile screen" />
                 </div>
             </div>
         </div>

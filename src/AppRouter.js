@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Layout } from 'antd';
-import axios from "axios";
-import Navbar from '../src/components/navbar/navbar';
+import Navbarheader from '../src/components/navbar/navbar';
 import Footer from '../src/components/footer/footer';
 import HomePage from '../src/pages/HomePage';
 import AboutPage from '../src/pages/AboutPage';
@@ -14,38 +13,16 @@ import Articles from "./components/articles/articles";
 import News from "./components/news/News";
 import NewsDetails from "./components/news/NewsDetails";
 import ArticleDetails from "./components/articles/ArticleDetails";
-
-
-function useNewsData() {
-    const [newsData, setNewsData] = useState([]);
-
-    useEffect(() => {
-        axios
-            .get(`https://back.creators-foundation.org/api/news.php?operation=news&page=1`)
-            .then(response => {
-                console.log(response.data);
-                if (response.data && response.data.news) {
-                    setNewsData(response.data.news);
-                } else {
-                    throw new Error('Invalid response data');
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching news data:', error);
-            });
-    }, []);
-
-    return newsData;
-}
+import { useNews } from './NewsContext'; // Use the correct import
 
 function AppRouter() {
-    const newsData = useNewsData();
+    const newsData = useNews();
 
     return (
         <Router>
             <Layout className="mainLayout">
                 <div className="App bg-white">
-                    <Navbar />
+                    <Navbarheader />
                     <Routes>
                         <Route path="/" element={<HomePage newsData={newsData} />} />
                         <Route path="/about" element={<AboutPage />} />
@@ -66,4 +43,3 @@ function AppRouter() {
 }
 
 export default AppRouter;
-

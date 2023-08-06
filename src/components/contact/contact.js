@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
 import axios from "axios";
 import "./contact.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faEnvelope, faPhone} from "@fortawesome/free-solid-svg-icons";
+import {faPhone} from "@fortawesome/free-solid-svg-icons";
 import {faFacebookSquare, faInstagram, faTelegram} from "@fortawesome/free-brands-svg-icons";
 
 function Contact() {
@@ -70,24 +69,25 @@ function Contact() {
 
 
                         </li>
-                        {/*<li>*/}
-                        {/*    <h6>*/}
-                        {/*        <FontAwesomeIcon icon={faEnvelope} className="icon"/>*/}
-                        {/*    </h6>*/}
-                        {/*</li>*/}
+
                     </ul>
 
                 </div>
                 <div className="col">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26672.791633646808!2d44.31504817284149!3d33.31622838118542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15577e507f7182cf%3A0xecef0f69c81dfb48!2sMansour%2C%20Baghdad!5e0!3m2!1sen!2siq!4v1688383177539!5m2!1sen!2siq"
-                        width="600"
-                        height="455"
-                        style={{border: 0}}
-                        allowFullScreen=""
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                    ></iframe>
+                    <div className="col-md-6">
+                        <div className="embed-responsive embed-responsive-16by9">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26672.791633646808!2d44.31504817284149!3d33.31622838118542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15577e507f7182cf%3A0xecef0f69c81dfb48!2sMansour%2C%20Baghdad!5e0!3m2!1sen!2siq!4v1688383177539!5m2!1sen!2siq"
+                                frameBorder="0"
+                                style={{ border: 0 }}
+                                allowFullScreen=""
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                className="embed-responsive-item"
+                            ></iframe>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
@@ -96,3 +96,6 @@ function Contact() {
 }
 
 export default Contact;
+
+
+
