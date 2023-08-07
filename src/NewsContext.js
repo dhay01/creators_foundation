@@ -1,6 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
-
 const NewsContext = createContext();
 
 function NewsProvider({ children }) {
@@ -10,7 +9,7 @@ function NewsProvider({ children }) {
         axios
             .get(`https://back.creators-foundation.org/api/news.php?operation=news&page=1`)
             .then(response => {
-                console.log(response.data);
+
                 if (response.data && response.data.news) {
                     setNewsData(response.data.news);
                 } else {

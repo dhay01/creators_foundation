@@ -42,7 +42,7 @@ function Navbarheader() {
                             aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
                             placement="end"
                         >
-                            <Offcanvas.Header closeButton>
+                            <Offcanvas.Header closeButton onClick={handleCloseOffcanvas}>
                                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
                                     مؤسسة مبدعون للتربية والفنون
                                 </Offcanvas.Title>
