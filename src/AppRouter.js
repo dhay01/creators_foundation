@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Layout } from 'antd';
 import Navbarheader from '../src/components/navbar/navbar';
@@ -13,7 +13,7 @@ import Articles from "./components/articles/articles";
 import News from "./components/news/News";
 import NewsDetails from "./components/news/NewsDetails";
 import ArticleDetails from "./components/articles/ArticleDetails";
-import { useNews } from './NewsContext'; // Use the correct import
+import { useNews } from './NewsContext';
 
 function AppRouter() {
     const newsData = useNews();

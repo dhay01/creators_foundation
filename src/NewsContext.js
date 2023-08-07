@@ -1,9 +1,9 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
 const NewsContext = createContext();
 
-export const NewsProvider = ({ children }) => {
+function NewsProvider({ children }) {
     const [newsData, setNewsData] = useState([]);
 
     useEffect(() => {
@@ -27,12 +27,14 @@ export const NewsProvider = ({ children }) => {
             {children}
         </NewsContext.Provider>
     );
-};
+}
 
-export const useNews = () => {
+function useNews() {
     const context = useContext(NewsContext);
     if (!context) {
         throw new Error('useNews must be used within a NewsProvider');
     }
     return context;
-};
+}
+
+export { NewsProvider, useNews };
